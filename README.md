@@ -1,4 +1,4 @@
-# go-web-demo
+# go-web
 
 一个基于 Go语言 的Web项目模板. 致力于构建完善的Go-Web开发框架, 以便快速高效的使用Go构建服务端. 示例网站: [瞎搞瞎玩](www.xiagaoxiawan.com)
 
