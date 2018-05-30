@@ -21,12 +21,12 @@ func StartWebServer_iris() {
 	}))
 
 	// url分组
-	// demo := app.Party("/v1/demo", middlewares.ErrorHandler)
+	// v1 := app.Party("/"+version, middlewares.ErrorHandler)
 	// {
-	// 	demo.Get("/{key}", handler.DemoGet)
-	// 	demo.Post("/", handler.DemoPost)
-	// 	demo.Patch("/{key}", handler.DemoPatch)
-	// 	demo.Delete("/{key}", handler.DemoDelete)
+	// 	v1.Get("/{key}", service.DemoGet)
+	// 	v1.Post("/", handler.DemoPost)
+	// 	v1.Patch("/{key}", handler.DemoPatch)
+	// 	v1.Delete("/{key}", handler.DemoDelete)
 	// }
 
 	app.OnErrorCode(404, func(ctx iris.Context) {
@@ -54,5 +54,5 @@ func StartWebServer_iris() {
 		}
 	}()
 
-	app.Run(iris.Addr(":50000"), iris.WithoutVersionChecker)
+	app.Run(iris.Addr(":8081"), iris.WithoutVersionChecker)
 }
