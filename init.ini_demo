@@ -1,0 +1,26 @@
+; config file for init project
+[Net]
+serviceIp     = 127.0.0.1
+network		  = tcp
+listenPort    = 9091
+
+[Work]
+contentDir = "/opt/tomcat/webapps/xiagaoxiawan/content"
+
+[Log]
+stdout        = true
+file          = /data/logs/socket/log.log
+level         = WARNING
+
+; dao
+[redis]
+network       = "tcp"
+host          = "127.0.0.1:6379"
+password      = "**"
+database      = 0
+connTimeout   = 6000
+readTimeout   = 6000
+writeTimeout  = 6000
+
+[info]
+version = v1
