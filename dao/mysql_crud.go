@@ -33,6 +33,10 @@ func (m mysqlHelper) init() {
 	}
 	m.url = fmt.Sprintf("%s:%s@%s(%s)/%s", m.userName, m.password, m.network, m.host, m.database)
 	gloableMysqlHelper = m
+	// db_mysql, err = sql.Open("mysql", conf.MysqlConfig.Url)
+	// db_mysql.SetMaxOpenConns(1000)
+	// db_mysql.SetMaxIdleConns(10)
+	// db_mysql.SetConnMaxLifetime(time.Second * 10)
 }
 
 func (m *mysqlHelper) Test() {
@@ -50,4 +54,5 @@ func (m *mysqlHelper) Test() {
 		}
 		fmt.Println(id, orderNum)
 	}
+	rows.Close()
 }

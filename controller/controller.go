@@ -15,7 +15,7 @@ func StartWebServer() {
 		}
 	}()
 
-	// 绑定页面
+	// 绑定静态页面
 	// http.Handle("/", http.FileServer(http.Dir(htmlDir)))
 
 	http.HandleFunc("/", service.FileServer)
