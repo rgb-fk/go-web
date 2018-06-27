@@ -1,6 +1,21 @@
-# go-web
+<!-- TOC -->
 
-一个基于 Go语言 的Web项目模板. 致力于构建完善的Go-Web开发框架, 以便快速高效的使用Go构建服务端. 示例网站: [瞎搞瞎玩](www.xiagaoxiawan.com)
+- [go-web](#go-web)
+    - [特性](#特性)
+    - [如何使用](#如何使用)
+    - [各文件介绍](#各文件介绍)
+        - [docker.sh](#dockersh)
+        - [Dockerfile](#dockerfile)
+        - [Makefile](#makefile)
+        - [cache](#cache)
+        - [config](#config)
+        - [AMQP](#amqp)
+    - [ETC](#etc)
+
+<!-- /TOC -->
+
+# go-web
+一个基于 Go语言 的Web项目模板, 以便快速高效的使用Go构建服务端.
 
 ## 特性
 1. 使用 dep 管理项目依赖
@@ -11,22 +26,14 @@
     - 目前已经封装了 mysql/redis/influx 数据库. 如需连接池支持, 还需开发.
 4. 部分消息队列封装
     - 目前支持 kafka
-5. 服务层分别采用 `net/http` 和 iris 框架实现. 二次开发时可以根据需要选择框架.
+5. 服务层使用原生 `net/http` 实现.
+    - 基于iris框架的模板: https://github.com/everywan/go-web-iris
 6. 支持微信公众号, 可以接收/响应微信公众号消息.
 
-## 使用
-1. 全项目替换 `github.com/everywan/go-web-demo` 为自己的项目路径.
+## 如何使用
+1. 全项目替换 `github.com/everywan/go-web` 为自己的项目路径.
 2. 使用dep初始化项目, 确保所有的引用初始化到vendor中(dep/手动均可)
 3. 符合 restful 规范
-
-### 各框架比较
-5. iris 封装了 GET/POST/PUT.. 等HTTP方法, 不需要像 net/http 一样在service函数里判断请求方法
-#### iris
-#### net/http
-#### gin
-
-## TODO
-1. 替换掉 github.com/stackcats 内容
 
 ## 各文件介绍
 ### docker.sh
@@ -49,4 +56,22 @@
 1. 配置各数据库客户端
 
 ### AMQP
-1. [kafka介绍]()
+
+## ETC
+没必要死记整个结构, 其实整个结构都是项目需要才添加进来的
+
+首先, main函数, 构建服务层, 创建handler或者service
+
+handler中, 需要更改数据库, 为了降低耦合, 对数据库分层, 所以有了 创建dao
+
+在dao中, 分开对底层和操作层, 所以创建db层, db层负责数据库链接的获取, dao层负责各表的CURD.
+
+在db层中, 需要获取数据库的配置信息, 所以有两种方案, 一是使用配置文件, 二是使用配置类, 所以有了 config层.
+
+在db层中, 可以对某些数据缓存, 所以有了cache层
+
+在handler中, 有些需要与其他服务通信. 所以有了client层, 负责与其他进程通信.
+
+在handler中, 需要明确数据的结构. 所以有了schema层, 负责定义数据的结构.
+
+日志库 使用iris自带日志库.

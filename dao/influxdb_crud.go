@@ -3,7 +3,7 @@ package dao
 import (
 	"fmt"
 
-	"github.com/everywan/go-web-demo/config"
+	"github.com/everywan/go-web/config"
 )
 
 var gloableInfluxdbHelper influxdbHelper

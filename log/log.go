@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/everywan/go-web-demo/config"
+	"github.com/everywan/go-web/config"
 )
 
 // 时间格式

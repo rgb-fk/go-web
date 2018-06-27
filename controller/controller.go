@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/everywan/go-web-demo/config"
-	"github.com/everywan/go-web-demo/service"
+	"github.com/everywan/go-web/config"
+	"github.com/everywan/go-web/service"
 )
 
 func StartWebServer() {

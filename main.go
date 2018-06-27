@@ -30,10 +30,11 @@ import "C"
 import (
 	"runtime"
 
-	"github.com/everywan/go-web-demo/controller"
+	"github.com/everywan/go-web/controller"
 )
 
 func main() {
+	// go1.5之后已经自动设置MAXPROCS为CPU实际核心数. 此处不再需要
 	runtime.GOMAXPROCS(runtime.NumCPU())
 	C.rlimit_init()
 

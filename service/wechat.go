@@ -7,8 +7,8 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/everywan/go-web-demo/entity"
-	"github.com/everywan/go-web-demo/util"
+	"github.com/everywan/go-web/entity"
+	"github.com/everywan/go-web/util"
 )
 
 func WxHandle(w http.ResponseWriter, r *http.Request) {

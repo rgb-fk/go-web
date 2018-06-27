@@ -1,6 +1,6 @@
 package entity
 
-import "github.com/everywan/go-web-demo/config"
+import "github.com/everywan/go-web/config"
 
 type Result_web struct {
 	Code int

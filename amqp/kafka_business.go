@@ -2,7 +2,7 @@ package amqp
 
 import (
 	"github.com/Shopify/sarama"
-	"github.com/everywan/go-web-demo/config"
+	"github.com/everywan/go-web/config"
 )
 
 // 初始化配置(轨迹点)

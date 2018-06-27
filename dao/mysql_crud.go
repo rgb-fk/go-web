@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/everywan/go-web-demo/config"
+	"github.com/everywan/go-web/config"
 	_ "github.com/go-sql-driver/mysql"
 )
 

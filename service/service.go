@@ -7,9 +7,9 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/everywan/go-web-demo/config"
-	"github.com/everywan/go-web-demo/entity"
-	"github.com/everywan/go-web-demo/util"
+	"github.com/everywan/go-web/config"
+	"github.com/everywan/go-web/entity"
+	"github.com/everywan/go-web/util"
 )
 
 func FileServer(w http.ResponseWriter, r *http.Request) {
@@ -50,20 +50,6 @@ func FileServer(w http.ResponseWriter, r *http.Request) {
 	}
 	data, _ := util.GetFileHelper(_url)
 	fmt.Fprintf(w, "%s", data)
-}
-
-func PreviewMD(w http.ResponseWriter, r *http.Request) {
-	result := &entity.Result_web{}
-	r.ParseForm()
-	path := contentDir + r.URL.Path
-	fmt.Println(path)
-	var html string
-	if _data, _err := util.RenderGFM(path); _err == nil {
-		html = config.HTML_0 + string(_data) + config.HTML_1
-	}
-	result.Data = html
-	jsonResult, _ := json.Marshal(result)
-	fmt.Fprintf(w, "%s", jsonResult)
 }
 
 func GetFile(w http.ResponseWriter, r *http.Request) {

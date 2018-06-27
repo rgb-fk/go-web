@@ -1,8 +1,8 @@
 package service
 
 import (
-	"github.com/everywan/go-web-demo/config"
-	"github.com/everywan/go-web-demo/log"
+	"github.com/everywan/go-web/config"
+	"github.com/everywan/go-web/log"
 )
 
 // 微信使用token

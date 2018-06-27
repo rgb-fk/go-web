@@ -10,7 +10,7 @@ APP_NAME := main
 
 GOLINT := $(shell which golint || echo '')
 
-PKGS := $(shell go list ./... | grep -v ^github.com/everywan/go-web-demo/vendor/)
+PKGS := $(shell go list ./... | grep -v ^github.com/everywan/go-web/vendor/)
 
 clean:
 	@echo "+ $@"
